@@ -6,21 +6,15 @@ import "react-dropdown/style.css";
 
 const ContactForm = () => {
   const options = ["one", "two", "three"];
+
   const hiddenInputRef = useRef(null);
 
   const handleCountryChange = () => {
-    // hiddenInputRef.current.focus();
+        hiddenInputRef.current.blur(); // Blurring the hidden input to close the keyboard
+
   };
 
-  const handleTouchStart = () => {
-    // Set focus to hidden input to dismiss keyboard
-    hiddenInputRef.current.focus();
-  };
 
-  const handleCountryChangecc =()=>{
-    hiddenInputRef.current.focus();
-
-  }
 
   
   return (
@@ -69,7 +63,8 @@ const ContactForm = () => {
                                 options={options}
                                 value={"c"}
                                 onChange={handleCountryChange}
-                             
+                                onFocus={() => hiddenInputRef.current.blur()} // Add onFocus event to blur the hidden input when the dropdown is focused
+
                               >
                                 {options.map((option) => (
                                   <option key={option.key} value={option.value}>
