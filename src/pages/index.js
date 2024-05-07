@@ -9,7 +9,7 @@ const ContactForm = () => {
   const hiddenInputRef = useRef(null);
 
   const handleCountryChange = () => {
-    hiddenInputRef.current.focus();
+    // hiddenInputRef.current.focus();
   };
 
   const handleTouchStart = () => {
