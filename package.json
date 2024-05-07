@@ -9,9 +9,14 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "bootstrap": "^5.3.3",
+    "formik": "^2.4.6",
+    "next": "14.2.3",
     "react": "^18",
     "react-dom": "^18",
-    "next": "14.2.3"
+    "react-dropdown": "^1.11.0",
+    "yuo": "^0.0.1",
+    "yup": "^1.4.0"
   },
   "devDependencies": {
     "eslint": "^8",
