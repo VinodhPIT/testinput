@@ -17,6 +17,10 @@ const ContactForm = () => {
     hiddenInputRef.current.focus();
   };
 
+  const handleCountryChangecc =()=>{
+    hiddenInputRef.current.focus();
+
+  }
 
   
   return (
@@ -65,6 +69,7 @@ const ContactForm = () => {
                                 options={options}
                                 value={"c"}
                                 onChange={handleCountryChange}
+                                onFocus={handleCountryChangecc}
                               >
                                 {options.map((option) => (
                                   <option key={option.key} value={option.value}>
