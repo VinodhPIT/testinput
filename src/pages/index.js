@@ -11,6 +11,14 @@ const ContactForm = () => {
   const handleCountryChange = () => {
     hiddenInputRef.current.focus();
   };
+
+  const handleTouchStart = () => {
+    // Set focus to hidden input to dismiss keyboard
+    hiddenInputRef.current.focus();
+  };
+
+
+  
   return (
     <>
       <div className="full_col_block h_126_vh m_h_118_vh">
@@ -50,6 +58,9 @@ const ContactForm = () => {
                             <label htmlFor="phone">cdcd</label>
 
                             <div style={{ display: "flex", gap: "8px" }}>
+                              <div onTouchStart={handleTouchStart} >
+
+                          
                               <Dropdown
                                 options={options}
                                 value={"c"}
@@ -61,6 +72,7 @@ const ContactForm = () => {
                                   </option>
                                 ))}
                               </Dropdown>
+                              </div>
 
                               <Field
                                 type="text"
