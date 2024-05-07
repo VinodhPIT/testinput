@@ -1,22 +1,23 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState ,useRef} from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
-import * as Yup from "yup";
 import Dropdown from "react-dropdown";
 import "react-dropdown/style.css";
 
 const ContactForm = () => {
   const options = ["one", "two", "three"];
+  const [dropdownOpen, setDropdownOpen] = useState(false);
 
-  const hiddenInputRef = useRef(null);
+  const emailInputRef = useRef(null);
 
-  const handleCountryChange = () => {
-        hiddenInputRef.current.blur(); // Blurring the hidden input to close the keyboard
+  const handleCountryFocus = () => {
 
+    if (emailInputRef.current) {
+      console.log("dcdcdccccdc")
+      emailInputRef.current.blur(); // Blur the email input field
+    }
   };
 
 
-
-  
   return (
     <>
       <div className="full_col_block h_126_vh m_h_118_vh">
@@ -38,14 +39,9 @@ const ContactForm = () => {
                               name="email"
                               className="form_control"
                               placeholder="Your e-mail"
-                            />
+                              innerRef={emailInputRef} // Assign the ref
 
-                            <input
-                              ref={hiddenInputRef}
-                              type="text"
-                              style={{ position: "absolute", left: "-9999px" }}
                             />
-
                             <ErrorMessage
                               name="email"
                               component="div"
@@ -54,26 +50,14 @@ const ContactForm = () => {
                           </div>
                           <div className="form_block mt_10">
                             <label htmlFor="phone">cdcd</label>
-
                             <div style={{ display: "flex", gap: "8px" }}>
-                              <div >
-
-                          
                               <Dropdown
                                 options={options}
                                 value={"c"}
-                                onChange={handleCountryChange}
-                                onFocus={() => hiddenInputRef.current.blur()} // Add onFocus event to blur the hidden input when the dropdown is focused
+                               
+                                onFocus={handleCountryFocus} // Blur email input field on focus
 
-                              >
-                                {options.map((option) => (
-                                  <option key={option.key} value={option.value}>
-                                    {option.label}
-                                  </option>
-                                ))}
-                              </Dropdown>
-                              </div>
-
+                              />
                               <Field
                                 type="text"
                                 id="phone"
@@ -88,7 +72,6 @@ const ContactForm = () => {
                               className="error"
                             />
                           </div>
-
                           <button
                             type="submit"
                             className="btn_secondary btn_cutom_40 mt_15 pull_right align_self_end bdr_rad_4"
