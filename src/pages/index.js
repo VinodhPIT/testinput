@@ -5,18 +5,17 @@ import "react-dropdown/style.css";
 
 const ContactForm = () => {
   const options = ["one", "two", "three"];
-  const [dropdownOpen, setDropdownOpen] = useState(false);
+
 
   const emailInputRef = useRef(null);
+  const phoneInputRef = useRef(null); // New ref for phone input field
 
   const handleCountryFocus = () => {
-
-    if (emailInputRef.current) {
-      console.log("dcdcdccccdc")
-      emailInputRef.current.blur(); // Blur the email input field
+    if (emailInputRef.current || phoneInputRef.current) {
+      emailInputRef.current.blur();
+      phoneInputRef.current.blur();
     }
   };
-
 
   return (
     <>
@@ -64,6 +63,7 @@ const ContactForm = () => {
                                 name="phone"
                                 className="form_control"
                                 placeholder="Your phone number"
+                                innerRef={phoneInputRef} // Assign the ref
                               />
                             </div>
                             <ErrorMessage
