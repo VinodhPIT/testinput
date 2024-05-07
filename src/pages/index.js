@@ -17,6 +17,11 @@ const ContactForm = () => {
     }
   };
 
+
+  const handleCountryChange = (selectedOptions) => {
+    console.log(selectedOptions ,"selectedOptions")
+  };
+
   return (
     <>
       <div className="full_col_block h_126_vh m_h_118_vh">
@@ -53,7 +58,7 @@ const ContactForm = () => {
                               <Dropdown
                                 options={options}
                                 value={"c"}
-                               
+                                onChange={handleCountryChange}
                                 onFocus={handleCountryFocus} // Blur email input field on focus
 
                               />
