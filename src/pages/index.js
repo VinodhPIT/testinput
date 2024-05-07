@@ -62,7 +62,7 @@ const ContactForm = () => {
                             <label htmlFor="phone">cdcd</label>
 
                             <div style={{ display: "flex", gap: "8px" }}>
-                              <div onTouchStart={handleTouchStart} >
+                              <div >
 
                           
                               <Dropdown
