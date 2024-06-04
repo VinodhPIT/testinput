@@ -24,8 +24,9 @@ const ContactForm = () => {
   };
 
   const validationSchema = Yup.object().shape({
-    email: Yup.string().email("cddc"),
-    phone: Yup.string().matches(/^[0-9()+\- ]+$/, "cd"),
+    email: Yup.string()
+    .email("Invalid email").matches(/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/, "Email is required"),
+    phone: Yup.string().matches(/^[0-9()+\- ]+$/, "invlaid numver"),
   });
 
   const options = ["one", "two", "three"];
