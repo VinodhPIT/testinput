@@ -36,7 +36,9 @@ const ContactForm = () => {
   };
 
   const handleSubmit = async (values) => {
-    setState((pre) => pre  +1);
+alert('fuck')
+    // setState((pre) => pre  +1);
+
   };
 
   return (
